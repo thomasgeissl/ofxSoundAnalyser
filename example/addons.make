@@ -1,0 +1,2 @@
+ofxSoundAnalyser
+ofxOsc
