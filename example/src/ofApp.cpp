@@ -1,35 +1,48 @@
 #include "ofApp.h"
 
-void ofApp::setup(){
+void ofApp::setup()
+{
 	_analyser.addListener(this);
 }
-void ofApp::update(){}
-void ofApp::draw(){}
-void ofApp::exit(){}
+void ofApp::update() {}
+void ofApp::draw() {}
+void ofApp::exit() {}
 
-void ofApp::onPeakEnergy(std::pair<int, float> & value){
-	auto analyserId = value.first;
-	auto peakEnergyValue = value.second;
+void ofApp::onPeakEnergy(ofxSoundAnalyser::FloatArg &arg)
+{
+	auto analyserId = arg.getId();
+	auto peakEnergyValue = arg.getValue();
 }
-void ofApp::onPitch(std::pair<int, float> & value){
-	auto analyserId = value.first;
-	int note = std::round((value.second > 0 ? 17.3123405046 * log(.12231220585 * value.second) : -1500));
+void ofApp::onPitch(ofxSoundAnalyser::FloatArg &arg)
+{
+	auto analyserId = arg.getId();
+	auto pitchValue = arg.getValue();
 }
-void ofApp::onRootMeanSquare(std::pair<int, float> & value){
-	auto analyserId = value.first;
-	auto rms = value.second;
+void ofApp::onRootMeanSquare(ofxSoundAnalyser::FloatArg &arg)
+{
+	auto analyserId = arg.getId();
+	auto rms = arg.getValue();
 }
-void ofApp::onFftMagnitudeSpectrum(std::pair<int, std::vector<float>> & value){
-	auto analyserId = value.first;
-	auto fftValues = value.second;
-	for(auto fftValue : fftValues){
-
+void ofApp::onFftMagnitudeSpectrum(ofxSoundAnalyser::FloatVecArg &arg)
+{
+	auto analyserId = arg.getId();
+	auto fftValues = arg.getValue();
+	for (auto fftValue : fftValues)
+	{
 	}
 }
-void ofApp::onMelFrequencySpectrum(std::pair<int, std::vector<float>> & value){ 
-	auto analyserId = value.first;
-	auto melValues = value.second;
-	for(auto melValue : melValues){
-
+void ofApp::onMelFrequencySpectrum(ofxSoundAnalyser::FloatVecArg &arg)
+{
+	auto analyserId = arg.getId();
+	auto melValues = arg.getValue();
+	for (auto melValue : melValues)
+	{
 	}
 }
+void ofApp::onSpectralCentroid(ofxSoundAnalyser::FloatArg &varg) {}
+void ofApp::onSpectralCrest(ofxSoundAnalyser::FloatArg &varg) {}
+void ofApp::onSpectralDifference(ofxSoundAnalyser::FloatArg &arg) {}
+void ofApp::onSpectralFlatness(ofxSoundAnalyser::FloatArg &arg) {}
+void ofApp::onZeroCrossingRate(ofxSoundAnalyser::FloatArg &arg) {}
+void ofApp::onChord(ofxSoundAnalyser::FloatArg &arg) {}
+void ofApp::onChromogram(ofxSoundAnalyser::FloatVecArg &arg) {}

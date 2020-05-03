@@ -3,18 +3,26 @@
 #include "ofMain.h"
 #include "ofxSoundAnalyser.h"
 
-class ofApp : public ofBaseApp, public ofxSoundAnalyserListener{
+class ofApp : public ofBaseApp, public ofxSoundAnalyser::Listener
+{
 public:
 	void setup();
 	void update();
 	void draw();
 	void exit();
 
-	void onPeakEnergy(std::pair<int, float> & value);
-	void onPitch(std::pair<int, float> & value);
-	void onRootMeanSquare(std::pair<int, float> & value);
-	void onFftMagnitudeSpectrum(std::pair<int, std::vector<float>> & value);
-	void onMelFrequencySpectrum(std::pair<int, std::vector<float>> & value);
-	
-	ofxSoundAnalyser _analyser;
+	void onPeakEnergy(ofxSoundAnalyser::FloatArg &arg);
+	void onPitch(ofxSoundAnalyser::FloatArg &arg);
+	void onRootMeanSquare(ofxSoundAnalyser::FloatArg &arg);
+	void onFftMagnitudeSpectrum(ofxSoundAnalyser::FloatVecArg &arg);
+	void onMelFrequencySpectrum(ofxSoundAnalyser::FloatVecArg &arg);
+	void onSpectralCentroid(ofxSoundAnalyser::FloatArg &varg);
+	void onSpectralCrest(ofxSoundAnalyser::FloatArg &varg);
+	void onSpectralDifference(ofxSoundAnalyser::FloatArg &arg);
+	void onSpectralFlatness(ofxSoundAnalyser::FloatArg &arg);
+	void onZeroCrossingRate(ofxSoundAnalyser::FloatArg &arg);
+	void onChord(ofxSoundAnalyser::FloatArg &arg);
+	void onChromogram(ofxSoundAnalyser::FloatVecArg &arg);
+
+	ofxSoundAnalyser::Analyser _analyser;
 };

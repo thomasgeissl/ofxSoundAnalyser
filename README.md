@@ -1,10 +1,16 @@
 # ofxSoundAnalyser
-## description
+## Description
 openFrameworks osc client for [Adam Stark's sound analyser](https://github.com/adamstark/Sound-Analyser). 
 
 There are still some features not yet implemented. Feel free to contribute, should be straight forward. 
 
-## license
+## Changelog
+* 2.0.0
+  * custom arg class instead of std::pair
+  * added missing features extracted by sound analyser plugin
+* 1.0.0
+
+## License
 This project is released under MIT license, please note that dependencies might be released differently.
 
 Copyright (c) 2018 Thomas Geissl
