@@ -25,4 +25,6 @@ public:
 	void onChromogram(ofxSoundAnalyser::FloatVecArg &arg);
 
 	ofxSoundAnalyser::Analyser _analyser;
+
+	float _peakEnergy;
 };

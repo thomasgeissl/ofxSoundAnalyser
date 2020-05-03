@@ -4,14 +4,21 @@ void ofApp::setup()
 {
 	_analyser.addListener(this);
 }
-void ofApp::update() {}
-void ofApp::draw() {}
+void ofApp::update()
+{
+	_analyser.update();
+}
+void ofApp::draw()
+{
+	ofDrawCircle(ofGetWidth() / 2, ofGetHeight() / 2, ofMap(_peakEnergy, 0, 1, 0, std::min(ofGetWidth() / 2, ofGetHeight() / 2) / 2));
+}
 void ofApp::exit() {}
 
 void ofApp::onPeakEnergy(ofxSoundAnalyser::FloatArg &arg)
 {
 	auto analyserId = arg.getId();
 	auto peakEnergyValue = arg.getValue();
+	_peakEnergy = peakEnergyValue;
 }
 void ofApp::onPitch(ofxSoundAnalyser::FloatArg &arg)
 {
