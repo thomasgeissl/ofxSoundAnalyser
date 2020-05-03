@@ -4,6 +4,9 @@ openFrameworks osc client for [Adam Stark's sound analyser](https://github.com/a
 
 There are still some features not yet implemented. Feel free to contribute, should be straight forward. 
 
+## Build status
+[![Build Status](https://travis-ci.com/thomasgeissl/ofxSoundAnalyser.svg?branch=master)](https://travis-ci.com/thomasgeissl/ofxSoundAnalyser)
+
 ## Changelog
 * 2.0.0
   * custom arg class instead of std::pair
